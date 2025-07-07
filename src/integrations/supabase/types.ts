@@ -9,7 +9,80 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      comments: {
+        Row: {
+          comment: string
+          created_at: string
+          guide_id: string
+          id: string
+          user_name: string
+        }
+        Insert: {
+          comment: string
+          created_at?: string
+          guide_id: string
+          id?: string
+          user_name: string
+        }
+        Update: {
+          comment?: string
+          created_at?: string
+          guide_id?: string
+          id?: string
+          user_name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "comments_guide_id_fkey"
+            columns: ["guide_id"]
+            isOneToOne: false
+            referencedRelation: "guides"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      guides: {
+        Row: {
+          authors: string[]
+          content: string
+          created_at: string
+          duration: string | null
+          id: string
+          likes: number | null
+          tags: string[] | null
+          thumbnail: string | null
+          title: string
+          updated_at: string
+          views: number | null
+        }
+        Insert: {
+          authors?: string[]
+          content: string
+          created_at?: string
+          duration?: string | null
+          id?: string
+          likes?: number | null
+          tags?: string[] | null
+          thumbnail?: string | null
+          title: string
+          updated_at?: string
+          views?: number | null
+        }
+        Update: {
+          authors?: string[]
+          content?: string
+          created_at?: string
+          duration?: string | null
+          id?: string
+          likes?: number | null
+          tags?: string[] | null
+          thumbnail?: string | null
+          title?: string
+          updated_at?: string
+          views?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
