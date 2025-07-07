@@ -18,6 +18,8 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        hero: "bg-youtube-red text-white hover:bg-youtube-red/90 shadow-glow animate-glow-pulse",
+        youtube: "bg-gradient-primary text-white hover:scale-105 transition-transform shadow-card-hover",
       },
       size: {
         default: "h-10 px-4 py-2",
