@@ -1,42 +1,43 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Search, Menu, X } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between px-4">
-        {/* Logo and Title */}
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow">
-              <span className="text-primary-foreground font-bold text-xl">YT</span>
-            </div>
-            <div className="hidden md:block">
-              <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                YouTube Coding Guide
-              </h1>
-              <p className="text-xs text-muted-foreground">Learn. Code. Create.</p>
-            </div>
+    <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b border-border/40">
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <div 
+          className="flex items-center space-x-4 cursor-pointer"
+          onClick={() => navigate('/')}
+        >
+          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-sm">YT</span>
           </div>
+          <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            YouTube Coding Guide
+          </h1>
         </div>
-
-        {/* Desktop Navigation */}
+        
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="/" className="text-foreground hover:text-primary transition-colors font-medium">
+          <button 
+            onClick={() => navigate('/')}
+            className="text-foreground hover:text-primary transition-colors"
+          >
             Home
-          </a>
-          <a href="/guides" className="text-foreground hover:text-primary transition-colors font-medium">
-            Guides
-          </a>
-          <a href="/create" className="text-foreground hover:text-primary transition-colors font-medium">
-            Create
-          </a>
+          </button>
+          {user && (
+            <button 
+              onClick={() => navigate('/create')}
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              Create Guide
+            </button>
+          )}
         </nav>
-
-        {/* Search and Mobile Menu */}
+        
         <div className="flex items-center space-x-4">
           <Button variant="ghost" size="sm" className="hidden sm:flex">
             <Search className="h-4 w-4" />
@@ -71,11 +72,34 @@ const Header = () => {
               <Button variant="outline" size="sm" className="w-full">
                 <Search className="h-4 w-4 mr-2" />
                 Search Guides
+          {user ? (
+            <div className="flex items-center space-x-4">
+              <span className="text-sm text-muted-foreground hidden sm:inline">
+                Welcome, {user.user_metadata?.username || user.email}
+              </span>
+              <Button variant="outline" onClick={signOut}>
+                Sign Out
               </Button>
             </div>
-          </nav>
+          ) : (
+            <div className="flex items-center space-x-2">
+              <Button 
+                variant="outline" 
+                onClick={() => navigate('/auth')}
+                className="hidden sm:inline-flex"
+              >
+                Sign In
+              </Button>
+              <Button 
+                variant="youtube"
+                onClick={() => navigate('/auth')}
+              >
+                Get Started
+              </Button>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </header>
   );
 };
