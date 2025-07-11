@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Search, X, Menu } from "lucide-react";
 
 const Header = () => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b border-border/40">
@@ -72,34 +75,37 @@ const Header = () => {
               <Button variant="outline" size="sm" className="w-full">
                 <Search className="h-4 w-4 mr-2" />
                 Search Guides
-          {user ? (
-            <div className="flex items-center space-x-4">
-              <span className="text-sm text-muted-foreground hidden sm:inline">
-                Welcome, {user.user_metadata?.username || user.email}
-              </span>
-              <Button variant="outline" onClick={signOut}>
-                Sign Out
               </Button>
             </div>
-          ) : (
-            <div className="flex items-center space-x-2">
-              <Button 
-                variant="outline" 
-                onClick={() => navigate('/auth')}
-                className="hidden sm:inline-flex"
-              >
-                Sign In
-              </Button>
-              <Button 
-                variant="youtube"
-                onClick={() => navigate('/auth')}
-              >
-                Get Started
-              </Button>
-            </div>
-          )}
+            {user ? (
+              <div className="flex items-center space-x-4">
+                <span className="text-sm text-muted-foreground hidden sm:inline">
+                  Welcome, {user.user_metadata?.username || user.email}
+                </span>
+                <Button variant="outline" onClick={signOut}>
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-2">
+                <Button 
+                  variant="outline" 
+                  onClick={() => navigate('/auth')}
+                  className="hidden sm:inline-flex"
+                >
+                  Sign In
+                </Button>
+                <Button 
+                  variant="youtube"
+                  onClick={() => navigate('/auth')}
+                >
+                  Get Started
+                </Button>
+              </div>
+            )}
+          </nav>
         </div>
-      </div>
+      )}
     </header>
   );
 };
