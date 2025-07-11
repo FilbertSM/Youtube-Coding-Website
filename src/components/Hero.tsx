@@ -38,7 +38,7 @@ const Hero = () => {
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             
-            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
+            <Button variant="outline" size="lg" className="border-white/20 text-black hover:bg-white/10 hover:text-white">
               Watch Latest
             </Button>
           </div>

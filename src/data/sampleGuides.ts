@@ -29,6 +29,7 @@ export const sampleGuides: Guide[] = [
     likes: 892,
     tags: ["React", "JavaScript", "Frontend", "Beginner"],
     createdAt: "2024-01-15",
+    thumbnail: "/assets/Complete React.js Tutorial for Beginners.jpg",
     comments: [
       {
         user: "CodeLearner123",
@@ -52,6 +53,7 @@ export const sampleGuides: Guide[] = [
     likes: 456,
     tags: ["Node.js", "Express", "Backend", "API", "Intermediate"],
     createdAt: "2024-01-10",
+    thumbnail: "/assets/Node.js API Development with Express.jpg",
     comments: [
       {
         user: "BackendDev",
@@ -70,6 +72,7 @@ export const sampleGuides: Guide[] = [
     likes: 678,
     tags: ["JavaScript", "ES6", "Modern JS", "Intermediate"],
     createdAt: "2024-01-08",
+    thumbnail: "/assets/JavaScript ES6+ Features You Must Know.jpg",
     comments: [
       {
         user: "JSNinja",
@@ -93,6 +96,7 @@ export const sampleGuides: Guide[] = [
     likes: 234,
     tags: ["MongoDB", "Database", "NoSQL", "Backend"],
     createdAt: "2024-01-05",
+    thumbnail: "/assets/MongoDB Database Design and Operations.jpg",
     comments: [
       {
         user: "DatabaseAdmin",
@@ -111,6 +115,7 @@ export const sampleGuides: Guide[] = [
     likes: 567,
     tags: ["Tailwind CSS", "CSS", "Frontend", "Design", "Responsive"],
     createdAt: "2024-01-03",
+    thumbnail: "/assets/Tailwind.jpg",
     comments: [
       {
         user: "UIDesigner",
@@ -129,6 +134,7 @@ export const sampleGuides: Guide[] = [
     likes: 1245,
     tags: ["MERN", "Full-Stack", "React", "Node.js", "MongoDB", "Advanced"],
     createdAt: "2024-01-01",
+    thumbnail: "/assets/Full-Stack Development with MERN Stack.jpg",
     comments: [
       {
         user: "FullStackDev",
