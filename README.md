@@ -1,5 +1,8 @@
 # YouTube Coding Guide – Full Stack Project
 
+![Homepage Screenshot](/assets/hero.png)
+![Guide Detail Screenshot](/assets/card.png)
+
 Welcome to **YouTube Coding Guide**, a modern, full-stack web application designed to be the ultimate information bank for coding tutorials inspired by the best of YouTube. This project empowers developers and learners to discover, share, and manage high-quality coding guides in a beautiful, responsive, and interactive environment.
 
 ---

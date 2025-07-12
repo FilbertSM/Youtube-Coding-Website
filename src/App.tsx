@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import CardPage from "./pages/CardPage";
 import CardDetailPage from "./pages/CardDetailPage";
@@ -7,15 +7,13 @@ import EditGuide from "./pages/EditGuide";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/cards" element={<CardPage />} />
-        <Route path="/cards/:id" element={<CardDetailPage />} />
-        <Route path="/create" element={<CreateGuide />} />
-        <Route path="/edit/:id" element={<EditGuide />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/cards" element={<CardPage />} />
+      <Route path="/cards/:id" element={<CardDetailPage />} />
+      <Route path="/create" element={<CreateGuide />} />
+      <Route path="/edit/:id" element={<EditGuide />} />
+    </Routes>
   );
 }
 

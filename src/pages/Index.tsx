@@ -3,21 +3,20 @@ import Hero from "../components/Hero";
 import SearchBar from "../components/SearchBar";
 import GuideCard from "../components/GuideCard";
 import Footer from "../components/Footer";
-import { useGuides } from "@/hooks/useGuides";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { sampleGuides } from "../data/sampleGuides";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const { guides, loading, fetchGuides } = useGuides();
-  
-  // Fetch guides with search query
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      fetchGuides(searchQuery);
-    }, 300); // Debounce search
-    
-    return () => clearTimeout(timeoutId);
-  }, [searchQuery]);
+  const [guides, setGuides] = useState(sampleGuides);
+
+  // Filter guides based on search query
+  const filteredGuides = searchQuery
+    ? guides.filter((guide) =>
+        guide.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (guide.tags && guide.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())))
+      )
+    : guides;
 
   return (
     <div className="min-h-screen bg-gradient-subtle">
@@ -32,35 +31,19 @@ const Index = () => {
             placeholder="Search guides by title or tags..."
           />
           
-          {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="h-64 bg-muted animate-pulse rounded-lg"></div>
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              {guides.map((guide) => (
-                <GuideCard key={guide.id} guide={guide} />
-              ))}
-            </div>
-          )}
-          
-          {!loading && guides.length === 0 && searchQuery && (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground text-lg">
-                No guides found matching "{searchQuery}"
-              </p>
-            </div>
-          )}
-          
-          {!loading && guides.length === 0 && !searchQuery && (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground text-lg">
-                No guides available yet. Be the first to create one!
-              </p>
-            </div>
-          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            {filteredGuides.length > 0 ? (
+              filteredGuides.map((guide) => (
+                <GuideCard key={guide.id} {...guide} />
+              ))
+            ) : (
+              <div className="text-center py-12 col-span-full">
+                <p className="text-muted-foreground text-lg">
+                  No guides found matching "{searchQuery}"
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </main>
       

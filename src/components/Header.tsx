@@ -29,7 +29,7 @@ const Header = () => {
             onClick={() => navigate('/')}
             className="text-foreground hover:text-primary transition-colors"
           >
-            Home
+            
           </button>
           {user && (
             <button 

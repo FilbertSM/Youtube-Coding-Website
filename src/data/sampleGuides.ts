@@ -22,7 +22,7 @@ export const sampleGuides: Guide[] = [
   {
     id: "1",
     title: "Complete React.js Tutorial for Beginners",
-    content: "Learn React.js from scratch with this comprehensive tutorial. We'll cover components, state management, hooks, and building your first React application. This guide includes hands-on examples and real-world projects to help you master React development.",
+    content: "Learn Resddasdadsaact.js from scratch with this comprehensive tutorial. We'll cover components, state management, hooks, and building your first React application. This guide includes hands-on examples and real-world projects to help you master React development.",
     authors: ["John Doe", "Jane Smith"],
     views: 15420,
     duration: "45 min",
