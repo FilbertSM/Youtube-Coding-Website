@@ -1,7 +1,12 @@
 # YouTube Coding Guide – Full Stack Project
 
-![Homepage Screenshot](/assets/hero.png)
-![Guide Detail Screenshot](/assets/card.png)
+<div align="center">
+  <img src="public/assets/hero.png" alt="Homepage Screenshot" width="100%"/>
+</div>
+
+<div align="center">
+  <img src="public/assets/card.png" alt="Guide Detail Screenshot" width="100%"/>
+</div>
 
 Welcome to **YouTube Coding Guide**, a modern, full-stack web application designed to be the ultimate information bank for coding tutorials inspired by the best of YouTube. This project empowers developers and learners to discover, share, and manage high-quality coding guides in a beautiful, responsive, and interactive environment.
 
