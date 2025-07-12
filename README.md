@@ -1,12 +1,19 @@
+
 # YouTube Coding Guide – Full Stack Project
 
-<div align="center">
-  <img src="public/assets/hero.png" alt="Homepage Screenshot" width="100%"/>
-</div>
+<p align="center">
+  <img src="public/assets/hero.png" alt="Homepage Screenshot" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); max-width: 900px; width: 100%; margin-bottom: 16px;" />
+</p>
+
+<p align="center">
+  <img src="public/assets/card.png" alt="Guide Detail Screenshot" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); max-width: 900px; width: 100%; margin-bottom: 16px;" />
+</p>
 
 <div align="center">
-  <img src="public/assets/card.png" alt="Guide Detail Screenshot" width="100%"/>
+  <b>Discover, share, and manage the best coding guides from YouTube in a beautiful, interactive web app.</b>
 </div>
+
+---
 
 Welcome to **YouTube Coding Guide**, a modern, full-stack web application designed to be the ultimate information bank for coding tutorials inspired by the best of YouTube. This project empowers developers and learners to discover, share, and manage high-quality coding guides in a beautiful, responsive, and interactive environment.
 
